@@ -7,28 +7,30 @@ import useRequireLogin from 'hooks/useRequireLogin';
 import useConfig from 'hooks/useConfig';
 import styles from './AppLayout.module.css';
 
-export default function AppLayout({ title, children }) {
+export default function AppLayout ( { title, children } )
+{
   const { user } = useRequireLogin();
   const config = useConfig();
   const { pathname } = useRouter();
 
-  if (!user || !config) {
+  if ( !user || !config )
+  {
     return null;
   }
 
-  const allowUpdate = user?.isAdmin && !config?.updatesDisabled && !pathname.includes('/share/');
+  const allowUpdate = user?.isAdmin && !config?.updatesDisabled && !pathname.includes( '/share/' );
 
   return (
-    <div className={styles.layout}>
-      {allowUpdate && <UpdateNotice />}
+    <div className={ styles.layout }>
+      { allowUpdate && <UpdateNotice /> }
       <Head>
-        <title>{title ? `${title} | umami` : 'umami'}</title>
+        <title>{ title ? `${ title } | vsAdmin` : 'vsAdmin' }</title>
       </Head>
-      <nav className={styles.nav}>
+      <nav className={ styles.nav }>
         <NavBar />
       </nav>
-      <main className={styles.body}>
-        <Container>{children}</Container>
+      <main className={ styles.body }>
+        <Container>{ children }</Container>
       </main>
     </div>
   );

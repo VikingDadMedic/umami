@@ -4,26 +4,27 @@ import { CURRENT_VERSION, HOMEPAGE_URL, REPO_URL } from 'lib/constants';
 import { labels } from 'components/messages';
 import styles from './Footer.module.css';
 
-export default function Footer() {
+export default function Footer ()
+{
   return (
-    <footer className={styles.footer}>
+    <footer className={ styles.footer }>
       <Row>
-        <Column defaultSize={12} lg={11} xl={11}>
+        <Column defaultSize={ 12 } lg={ 11 } xl={ 11 }>
           <div>
             <FormattedMessage
-              {...labels.poweredBy}
-              values={{
+              { ...labels.poweredBy }
+              values={ {
                 name: (
-                  <a href={HOMEPAGE_URL}>
-                    <b>umami</b>
+                  <a href={ HOMEPAGE_URL }>
+                    <b>vsAdmin Analytics</b>
                   </a>
                 ),
-              }}
+              } }
             />
           </div>
         </Column>
-        <Column className={styles.version} defaultSize={12} lg={1} xl={1}>
-          <a href={REPO_URL}>{`v${CURRENT_VERSION}`}</a>
+        <Column className={ styles.version } defaultSize={ 12 } lg={ 1 } xl={ 1 }>
+          <a href={ REPO_URL }>{ `v${ CURRENT_VERSION }` }</a>
         </Column>
       </Row>
     </footer>

@@ -2,15 +2,16 @@ import Head from 'next/head';
 import useLocale from 'hooks/useLocale';
 import styles from './LoginLayout.module.css';
 
-export default function LoginLayout({ children }) {
+export default function LoginLayout ( { children } )
+{
   const { dir } = useLocale();
 
   return (
-    <div className={styles.layout} dir={dir}>
+    <div className={ styles.layout } dir={ dir }>
       <Head>
-        <title>{`Login | umami`}</title>
+        <title>{ `Login | vsAdmin` }</title>
       </Head>
-      {children}
+      { children }
     </div>
   );
 }

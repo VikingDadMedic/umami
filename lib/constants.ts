@@ -30,7 +30,7 @@ export const FILTER_RANGE = 'filter-range';
 export const FILTER_REFERRERS = 'filter-referrers';
 export const FILTER_PAGES = 'filter-pages';
 
-export const EVENT_COLUMNS = ['url', 'referrer', 'title', 'query', 'event'];
+export const EVENT_COLUMNS = [ 'url', 'referrer', 'title', 'query', 'event' ];
 
 export const SESSION_COLUMNS = [
   'browser',
@@ -88,22 +88,22 @@ export const PERMISSIONS = {
 } as const;
 
 export const ROLE_PERMISSIONS = {
-  [ROLES.admin]: [PERMISSIONS.all],
-  [ROLES.user]: [
+  [ ROLES.admin ]: [ PERMISSIONS.all ],
+  [ ROLES.user ]: [
     PERMISSIONS.websiteCreate,
     PERMISSIONS.websiteUpdate,
     PERMISSIONS.websiteDelete,
     PERMISSIONS.teamCreate,
   ],
-  [ROLES.teamOwner]: [PERMISSIONS.teamUpdate, PERMISSIONS.teamDelete],
-  [ROLES.teamMember]: [],
+  [ ROLES.teamOwner ]: [ PERMISSIONS.teamUpdate, PERMISSIONS.teamDelete ],
+  [ ROLES.teamMember ]: [],
 } as const;
 
 export const THEME_COLORS = {
   light: {
     primary: '#2680eb',
     gray50: '#ffffff',
-    gray75: '#fafafa',
+    gray75: '#D1D5DB',
     gray100: '#f5f5f5',
     gray200: '#eaeaea',
     gray300: '#e1e1e1',
@@ -178,7 +178,7 @@ export const DESKTOP_OS = [
   'Windows XP',
 ];
 
-export const MOBILE_OS = ['Amazon OS', 'Android OS', 'BlackBerry OS', 'iOS', 'Windows Mobile'];
+export const MOBILE_OS = [ 'Amazon OS', 'Android OS', 'BlackBerry OS', 'iOS', 'Windows Mobile' ];
 
 export const BROWSERS = {
   aol: 'AOL',

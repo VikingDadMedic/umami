@@ -13,48 +13,50 @@ import 'styles/locale.css';
 import 'styles/index.css';
 import 'chartjs-adapter-date-fns';
 
-const client = new QueryClient({
+const client = new QueryClient( {
   defaultOptions: {
     queries: {
       retry: false,
       refetchOnWindowFocus: false,
     },
   },
-});
+} );
 
-export default function App({ Component, pageProps }) {
+export default function App ( { Component, pageProps } )
+{
   const { locale, messages } = useLocale();
   const { basePath, pathname } = useRouter();
   const config = useConfig();
 
-  const Wrapper = ({ children }) => <span className={locale}>{children}</span>;
+  const Wrapper = ( { children } ) => <span className={ locale }>{ children }</span>;
 
-  if (config?.uiDisabled) {
+  if ( config?.uiDisabled )
+  {
     return null;
   }
 
   return (
-    <QueryClientProvider client={client}>
+    <QueryClientProvider client={ client }>
       <IntlProvider
-        locale={locale}
-        messages={messages[locale]}
-        textComponent={Wrapper}
-        onError={() => null}
+        locale={ locale }
+        messages={ messages[ locale ] }
+        textComponent={ Wrapper }
+        onError={ () => null }
       >
         <Head>
-          <link rel="icon" href={`${basePath}/favicon.ico`} />
-          <link rel="apple-touch-icon" sizes="180x180" href={`${basePath}/apple-touch-icon.png`} />
-          <link rel="icon" type="image/png" sizes="32x32" href={`${basePath}/favicon-32x32.png`} />
-          <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/favicon-16x16.png`} />
-          <link rel="manifest" href={`${basePath}/site.webmanifest`} />
-          <link rel="mask-icon" href={`${basePath}/safari-pinned-tab.svg`} color="#5bbad5" />
+          <link rel="icon" href={ `${ basePath }/favicon.ico` } />
+          <link rel="apple-touch-icon" sizes="180x180" href={ `${ basePath }/apple-touch-icon.png` } />
+          <link rel="icon" type="image/png" sizes="32x32" href={ `${ basePath }/favicon-32x32.png` } />
+          <link rel="icon" type="image/png" sizes="16x16" href={ `${ basePath }/favicon-16x16.png` } />
+          <link rel="manifest" href={ `${ basePath }/site.webmanifest` } />
+          <link rel="mask-icon" href={ `${ basePath }/safari-pinned-tab.svg` } color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+          <meta name="theme-color" content="#D1D5DB" media="(prefers-color-scheme: light)" />
           <meta name="theme-color" content="#2f2f2f" media="(prefers-color-scheme: dark)" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <Component {...pageProps} />
-        {!pathname.includes('/share/') && <Script src={`${basePath}/telemetry.js`} />}
+        <Component { ...pageProps } />
+        { !pathname.includes( '/share/' ) && <Script src={ `${ basePath }/telemetry.js` } /> }
       </IntlProvider>
     </QueryClientProvider>
   );

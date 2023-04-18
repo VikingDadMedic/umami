@@ -12,48 +12,50 @@ import useMessages from 'hooks/useMessages';
 import { useRouter } from 'next/router';
 import HamburgerButton from '../common/HamburgerButton';
 
-export default function NavBar() {
+export default function NavBar ()
+{
   const { pathname } = useRouter();
   const { cloudMode } = useConfig();
   const { formatMessage, labels } = useMessages();
 
   const links = [
-    { label: formatMessage(labels.dashboard), url: '/dashboard' },
-    { label: formatMessage(labels.realtime), url: '/realtime' },
-    !cloudMode && { label: formatMessage(labels.settings), url: '/settings' },
-  ].filter(n => n);
+    { label: formatMessage( labels.dashboard ), url: '/dashboard' },
+    { label: formatMessage( labels.realtime ), url: '/realtime' },
+    !cloudMode && { label: formatMessage( labels.settings ), url: '/settings' },
+  ].filter( n => n );
 
   return (
-    <div className={classNames(styles.navbar)}>
+    <div className={ classNames( styles.navbar ) }>
       <Row>
-        <Column className={styles.left}>
-          <div className={styles.logo}>
+        <Column className={ styles.left }>
+          <div className={ styles.logo }>
             <Icon size="lg">
               <Icons.Logo />
             </Icon>
-            <Text className={styles.text}>umami</Text>
+            <Text className={ styles.text }>vsAdmin</Text>
           </div>
-          <div className={styles.links}>
-            {links.map(({ url, label }) => {
+          <div className={ styles.links }>
+            { links.map( ( { url, label } ) =>
+            {
               return (
                 <Link
-                  key={url}
-                  href={url}
-                  className={classNames({ [styles.selected]: pathname.startsWith(url) })}
+                  key={ url }
+                  href={ url }
+                  className={ classNames( { [ styles.selected ]: pathname.startsWith( url ) } ) }
                 >
-                  <Text>{label}</Text>
+                  <Text>{ label }</Text>
                 </Link>
               );
-            })}
+            } ) }
           </div>
         </Column>
-        <Column className={styles.right}>
-          <div className={styles.actions}>
+        <Column className={ styles.right }>
+          <div className={ styles.actions }>
             <ThemeButton />
             <LanguageButton />
             <ProfileButton />
           </div>
-          <div className={styles.mobile}>
+          <div className={ styles.mobile }>
             <HamburgerButton />
           </div>
         </Column>

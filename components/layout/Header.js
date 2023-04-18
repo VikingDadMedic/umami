@@ -6,19 +6,24 @@ import SettingsButton from 'components/input/SettingsButton';
 import Icons from 'components/icons';
 import styles from './Header.module.css';
 
-export default function Header() {
+export default function Header ()
+{
   return (
-    <header className={styles.header}>
+    <header className={ styles.header }>
       <Row>
         <Column>
-          <Link href="https://umami.is" target="_blank" className={styles.title}>
+          <Link
+            href="https://captain.hub.contentportal.link"
+            target="_blank"
+            className={ styles.title }
+          >
             <Icon size="lg">
               <Icons.Logo />
             </Icon>
-            <Text>umami</Text>
+            <Text>vsAdmin</Text>
           </Link>
         </Column>
-        <Column className={styles.buttons}>
+        <Column className={ styles.buttons }>
           <ThemeButton tooltipPosition="bottom" />
           <LanguageButton tooltipPosition="bottom" menuPosition="bottom" />
           <SettingsButton />

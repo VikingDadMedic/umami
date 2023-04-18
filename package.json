@@ -1,13 +1,13 @@
 {
-  "name": "umami",
+  "name": "vsadmin-analytics",
   "version": "2.0.0",
   "description": "A simple, fast, privacy-focused alternative to Google Analytics.",
-  "author": "Mike Cao <mike@mikecao.com>",
+  "author": "",
   "license": "MIT",
-  "homepage": "https://umami.is",
+  "homepage": "https://github.com/VikingDadMedic/umami",
   "repository": {
     "type": "git",
-    "url": "https://github.com/umami-software/umami.git"
+    "url": "https://github.com/VikingDadMedic/umami.git"
   },
   "scripts": {
     "dev": "next dev -p 3000",
